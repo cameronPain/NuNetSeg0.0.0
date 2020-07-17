@@ -1,0 +1,118 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Settings>
+  <version>0.0.0</version> <!-- Version of NeuNetSeg -->
+  <temp>temp/</temp> <!-- The working directory to save data to locally -->
+  <ModelRootDir>Models/</ModelRootDir> <!-- Directory to load the trained tensorflow neural networks from-->
+  <RTStructureTemplate>Imports/RTStruct_Template_Dicom.dcm</RTStructureTemplate> <!-- Location of a template RT Structure -->
+  <Localised_Models>
+      <Model name = "Liver">
+          <LocalisationName>Liver_Localiser.model</LocalisationName>
+          <LocalisationShape>64,64,64</LocalisationShape>
+          <LocalisationThreshold>0.3</LocalisationThreshold>
+          <LocalisationBuffer>[5,3],[4,5],[3,12]</LocalisationBuffer>
+          <SegmentationName>Liver_Segmentation.model</SegmentationName>
+          <SegmentationShape>64,128,128</SegmentationShape>
+          <SegmentationThreshold>0.6</SegmentationThreshold>
+          <SmoothingFactor>0</SmoothingFactor>
+          <ROIColour>255,0,255</ROIColour>
+          <ROIName>Liver_NeuNetSeg</ROIName>
+          <ROIDescription>Cameron Pain 20200306: "Automatic liver segmentation using UNET.</ROIDescription>
+      </Model>
+      <Model name = "Kidney">
+          <LocalisationName>Kidney_Localiser.model</LocalisationName>
+          <LocalisationShape>64,64,64</LocalisationShape>
+          <LocalisationThreshold>0.275</LocalisationThreshold>
+          <LocalisationBuffer>[4,4],[5,5],[5,5]</LocalisationBuffer>
+          <SegmentationName>Kidney_Segmentation.model</SegmentationName>
+          <SegmentationShape>32,128,256</SegmentationShape>
+          <SegmentationThreshold>0.15</SegmentationThreshold>
+          <SmoothingFactor>0</SmoothingFactor>
+          <ROIColour>0,255,255</ROIColour>
+          <ROIName>Kidney_NeuNetSeg</ROIName>
+          <ROIDescription>Cameron Pain 20200306: "Automatic kidney segmentation using UNET.</ROIDescription>
+      </Model>
+      <Model name = "Heart">
+          <LocalisationName>Heart_Localiser.model</LocalisationName>
+          <LocalisationShape>64,64,64</LocalisationShape>
+          <LocalisationThreshold>0.3</LocalisationThreshold>
+          <LocalisationBuffer>[3,2],[5,5],[5,5]</LocalisationBuffer>
+          <SegmentationName>Heart_Segmentation.model</SegmentationName>
+          <SegmentationShape>48,128,128</SegmentationShape>
+          <SegmentationThreshold>0.5</SegmentationThreshold>
+          <SmoothingFactor>0</SmoothingFactor>
+          <ROIColour>255,255,0</ROIColour>
+          <ROIName>Heart_NeuNetSeg</ROIName>
+          <ROIDescription>Cameron Pain 20200411: "Automatic heart segmentation using UNET.</ROIDescription>
+      </Model>
+      <Model name = "Lung">
+          <LocalisationName>Lung_Localiser.model</LocalisationName>
+          <LocalisationShape>64,32,32</LocalisationShape>
+          <LocalisationThreshold>0.55</LocalisationThreshold>
+          <LocalisationBuffer>[5,5],[5,5],[3,3]</LocalisationBuffer>
+          <SegmentationName>Lung_Segmentation.model</SegmentationName>
+          <SegmentationShape>96,128,128</SegmentationShape>
+          <SegmentationThreshold>0.3</SegmentationThreshold>
+          <SmoothingFactor>2.5</SmoothingFactor>
+          <ROIColour>255,0,0</ROIColour>
+          <ROIName>Lung_NeuNetSeg</ROIName>
+          <ROIDescription>Cameron Pain 20200312: "Automatic lung segmentation using UNET.</ROIDescription>
+      </Model>
+      <Model name = "Brain">
+          <LocalisationName>Brain_Localiser.model</LocalisationName>
+          <LocalisationShape>32,32,32</LocalisationShape>
+          <LocalisationThreshold>0.04</LocalisationThreshold>
+          <LocalisationBuffer>[1,3],[2,2],[2,2] </LocalisationBuffer>
+          <SegmentationName>Brain_Segmentation.model</SegmentationName>
+          <SegmentationShape>32,128,128</SegmentationShape>
+          <SegmentationThreshold>0.5</SegmentationThreshold>
+          <SmoothingFactor>0.0</SmoothingFactor>
+          <ROIColour>0,0,255</ROIColour>
+          <ROIName>Brain_NeuNetSeg</ROIName>
+          <ROIDescription>Cameron Pain 20200415: "Automatic brain segmentation using UNET.</ROIDescription>
+      </Model>
+      <Model name = "Spine">
+          <LocalisationName>Spine_Localiser.model</LocalisationName>
+          <LocalisationShape>64,64,64</LocalisationShape>
+          <LocalisationThreshold>0.75</LocalisationThreshold>
+          <LocalisationBuffer>[0,0],[1,1],[1,1] </LocalisationBuffer>
+          <SegmentationName>Spine_Segmentation.model</SegmentationName>
+          <SegmentationShape>128,96,96</SegmentationShape>
+          <SegmentationThreshold>0.5</SegmentationThreshold>
+          <SmoothingFactor>1</SmoothingFactor>
+          <ROIColour>255,165,0</ROIColour>
+          <ROIName>Spine_NeuNetSeg</ROIName>
+          <ROIDescription>Cameron Pain 20200415: "Automatic spine segmentation using UNET.</ROIDescription>
+      </Model>
+      <Model name = "Spleen">
+          <LocalisationName>Spleen_Localiser.model</LocalisationName>
+          <LocalisationShape>64,64,64</LocalisationShape>
+          <LocalisationThreshold>0.8</LocalisationThreshold>
+          <LocalisationBuffer>[5,5],[5,5],[5,5] </LocalisationBuffer>
+          <SegmentationName>Spleen_Segmentation.model</SegmentationName>
+          <SegmentationShape>48,128,128</SegmentationShape>
+          <SegmentationThreshold>0.5</SegmentationThreshold>
+          <SmoothingFactor>1</SmoothingFactor>
+          <ROIColour>199,255,70</ROIColour>
+          <ROIName>Spleen_NeuNetSeg</ROIName>
+          <ROIDescription>Cameron Pain 20200415: "Automatic spleen segmentation using UNET.</ROIDescription>
+      </Model>  </Localised_Models>
+  <Network>
+    <SegmentationNode name = "NuNetSeg sender">   <!-- The network details of the dicom server containing the NuNetSeg algorithm -->
+      <AE_Title>NuNetSeg</AE_Title>  <!-- Dicom server AE title -->
+      <ip>127.0.0.1</ip><!-- The ip -->
+      <port>11113</port> <!-- The port -->
+    </SegmentationNode>
+    <ReceivingEntities><!--The list of locations you want to send back the segmentation RT structure to -->
+        <Entity name = "Local receiving location"> <!-- The first AE to receive the results -->
+          <AE_Title>Local_Location</AE_Title> <!-- Receiver 1 AE title-->
+          <ip>127.0.0.1</ip><!-- Receiver 1 ip-->
+          <port>4008</port><!-- Receiver 1 port-->
+        </Entity>
+        <Entity name = 'External receiving location'> <!-- Second AE to receive results-->
+          <AE_Title>External_Location</AE_Title><!-- Receiver 2 AE title-->
+          <ip>172.27.11.71</ip><!-- Receiver 2 ip -->
+          <port>4008</port> <!-- Receiver 2 port-->
+        </Entity>
+    </ReceivingEntities>
+  </Network>
+</Settings>
